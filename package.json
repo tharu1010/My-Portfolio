@@ -1,0 +1,22 @@
+{
+  "name": "mihiri-tharushika-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website of Mihiri Tharushika - Full-Stack Developer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "deploy": "gh-pages -d .",
+    "build": "echo 'No build process needed for static site'"
+  },
+  "keywords": ["portfolio", "web-development", "html", "css", "javascript"],
+  "author": "Mihiri Tharushika",
+  "license": "MIT",
+  "homepage": "https://IT22914200.github.io/My-Portfolio-tharu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IT22914200/My-Portfolio-tharu.git"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
