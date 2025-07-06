@@ -1,22 +1,56 @@
 {
   "name": "mihiri-tharushika-portfolio",
-  "version": "1.0.0",
-  "description": "Personal portfolio website of Mihiri Tharushika - Full-Stack Developer",
+  "version": "2.0.0",
+  "description": "Modern personal portfolio website of Mihiri Tharushika - Full-Stack Developer",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
-    "deploy": "gh-pages -d .",
-    "build": "echo 'No build process needed for static site'"
+    "dev": "live-server --port=3000 --host=localhost",
+    "build": "echo 'Building optimized version...' && npm run minify-css && npm run minify-js",
+    "minify-css": "echo 'CSS minification would go here'",
+    "minify-js": "echo 'JS minification would go here'",
+    "deploy": "gh-pages -d . --branch gh-pages",
+    "predeploy": "npm run build",
+    "lint": "echo 'Linting would go here'",
+    "test": "echo 'Tests would go here'",
+    "lighthouse": "lighthouse http://localhost:8000 --output html --output-path ./lighthouse-report.html"
   },
-  "keywords": ["portfolio", "web-development", "html", "css", "javascript"],
-  "author": "Mihiri Tharushika",
+  "keywords": [
+    "portfolio", 
+    "web-development", 
+    "modern-ui", 
+    "glassmorphism",
+    "responsive-design",
+    "full-stack-developer",
+    "html5", 
+    "css3", 
+    "javascript",
+    "github-pages"
+  ],
+  "author": {
+    "name": "Mihiri Tharushika",
+    "email": "mihiritharushika030@gmail.com",
+    "url": "https://github.com/IT22914200"
+  },
   "license": "MIT",
   "homepage": "https://IT22914200.github.io/My-Portfolio-tharu",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IT22914200/My-Portfolio-tharu.git"
   },
+  "bugs": {
+    "url": "https://github.com/IT22914200/My-Portfolio-tharu/issues"
+  },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
-  }
+    "gh-pages": "^6.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
