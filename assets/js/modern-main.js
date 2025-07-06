@@ -255,39 +255,74 @@ class PortfolioApp {
   }
 
   /*=============== SKILL BARS ANIMATION ===============*/
+  /*=============== SKILL BARS ANIMATION ===============*/
   initSkillBars() {
+    const animateSkills = () => {
+      const skillBars = document.querySelectorAll('.skill__progress');
+      
+      skillBars.forEach((bar, index) => {
+        const width = bar.getAttribute('data-width');
+        
+        if (width) {
+          // Reset width first
+          bar.style.width = '0%';
+          
+          // Animate with delay
+          setTimeout(() => {
+            bar.style.width = width + '%';
+          }, 100 + (index * 150)); // Stagger the animations
+        }
+      });
+    };
+
+    // Multiple triggers to ensure animation works
     const skillsSection = document.getElementById('skills');
     let skillsAnimated = false;
 
-    const animateSkills = () => {
-      if (skillsAnimated) return;
-      
-      const skillBars = document.querySelectorAll('.skill__progress');
-      
-      skillBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        if (width) {
-          setTimeout(() => {
-            bar.style.width = width + '%';
-          }, 200);
-        }
-      });
-      
-      skillsAnimated = true;
-    };
-
-    // Intersection Observer for skills animation
-    const skillsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateSkills();
-        }
-      });
-    }, { threshold: 0.5 });
-
+    // Intersection Observer
     if (skillsSection) {
+      const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !skillsAnimated) {
+            animateSkills();
+            skillsAnimated = true;
+          }
+        });
+      }, { threshold: 0.2 });
+
       skillsObserver.observe(skillsSection);
     }
+    
+    // Scroll-based trigger (fallback)
+    const handleScroll = () => {
+      if (skillsAnimated) return;
+      
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) {
+        const rect = skillsSection.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+          animateSkills();
+          skillsAnimated = true;
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial check on page load
+    setTimeout(() => {
+      if (!skillsAnimated) {
+        handleScroll();
+      }
+    }, 2000);
+    
+    // Manual test function for debugging
+    window.testSkillBars = () => {
+      animateSkills();
+    };
   }
 
   /*=============== PROJECT FILTERS ===============*/
@@ -402,41 +437,66 @@ class PortfolioApp {
 
   /*=============== TYPING ANIMATION ===============*/
   initTypingAnimation() {
-    const greetingElement = document.querySelector('.hero__greeting');
-    if (!greetingElement) return;
+    const typedTextElement = document.querySelector('.typed-text');
+    const heroRole = document.querySelector('.hero__role');
+    if (!typedTextElement) return;
 
-    const greetings = ['Hello!', 'Welcome!', 'Hi There!', 'Greetings!'];
+    const roles = [
+      'Full-Stack Developer',
+      'Frontend Engineer', 
+      'Backend Developer',
+      'Mobile App Developer',
+      'React Native Developer',
+      'MERN Stack Developer',
+      'Web Designer',
+      'React Developer',
+      'Node.js Developer',
+      'Express.js Developer',
+      'MongoDB Developer',
+      'JavaScript Engineer',
+      'TypeScript Developer',
+      'UI/UX Enthusiast',
+      'Software Engineer'
+    ];
+    
     let currentIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
 
     const typeText = () => {
-      const currentText = greetings[currentIndex];
+      const currentText = roles[currentIndex];
+      
+      // Add typing class for glow effect
+      if (heroRole) heroRole.classList.add('typing');
       
       if (isDeleting) {
-        greetingElement.textContent = currentText.substring(0, charIndex - 1);
+        typedTextElement.textContent = currentText.substring(0, charIndex - 1);
         charIndex--;
         
         if (charIndex === 0) {
           isDeleting = false;
-          currentIndex = (currentIndex + 1) % greetings.length;
+          currentIndex = (currentIndex + 1) % roles.length;
+          // Remove typing class when finished deleting
+          if (heroRole) heroRole.classList.remove('typing');
         }
       } else {
-        greetingElement.textContent = currentText.substring(0, charIndex + 1);
+        typedTextElement.textContent = currentText.substring(0, charIndex + 1);
         charIndex++;
         
         if (charIndex === currentText.length) {
           isDeleting = true;
-          setTimeout(typeText, 1500);
+          // Remove typing class when finished typing
+          if (heroRole) heroRole.classList.remove('typing');
+          setTimeout(typeText, 2000); // Pause for 2 seconds after completing the word
           return;
         }
       }
       
-      setTimeout(typeText, isDeleting ? 50 : 100);
+      setTimeout(typeText, isDeleting ? 80 : 120); // Slightly slower typing for better readability
     };
 
     // Start typing animation after page load
-    setTimeout(typeText, 2000);
+    setTimeout(typeText, 1000);
   }
 
   /*=============== COUNTER ANIMATION ===============*/

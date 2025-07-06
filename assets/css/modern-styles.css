@@ -497,6 +497,36 @@ img {
   animation: fadeInUp 0.8s ease 0.4s both;
 }
 
+/*=============== TYPING ANIMATION ===============*/
+.typed-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.typing-cursor {
+  color: var(--primary-color);
+  animation: blink 1s infinite;
+  font-weight: 400;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Add a subtle glow effect when typing */
+.hero__role.typing {
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
 .hero__description {
   font-size: var(--fs-lg);
   color: var(--text-color-light);
@@ -957,7 +987,9 @@ img {
   background: var(--gradient-primary);
   border-radius: var(--radius-md);
   width: 0%;
-  transition: width 1s ease;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
 }
 
 .skill__percentage {
