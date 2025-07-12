@@ -34,3 +34,18 @@ ehthumbs.db
 
 # gh-pages deployment
 .gh-pages-cache/
+
+# Reports and temporary files
+lighthouse-report.html
+*.log
+*.tmp
+*.bak
+
+# Cache files
+.cache/
+.sass-cache/
+
+# IDE files
+.idea/
+*.swp
+*.swo
