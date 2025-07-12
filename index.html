@@ -167,50 +167,156 @@
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title">About Me</h2>
-                    <p class="section__subtitle">Get to know me better</p>
+                    <p class="section__subtitle">Passionate developer crafting digital experiences</p>
                 </div>
 
                 <div class="about__container">
-                    <div class="about__content">
-                        <div class="about__text">
-                            <p class="about__description">
-                                I'm a passionate Full-Stack Developer with a keen eye for creating innovative digital solutions. 
-                                Currently pursuing my Information Technology degree at Sri Lanka Institute of Information Technology (SLIIT), 
-                                I specialize in modern web technologies and have a strong foundation in both frontend and backend development.
-                            </p>
-                            <p class="about__description">
-                                My journey in technology is driven by curiosity and a desire to solve real-world problems through code. 
-                                I enjoy working with teams to bring ideas to life and am always eager to learn new technologies and methodologies.
-                            </p>
-                        </div>
-                        
-                        <div class="about__stats">
-                            <div class="stat">
-                                <div class="stat__number" data-count="6">0</div>
-                                <div class="stat__label">Projects Completed</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat__number" data-count="5">0</div>
-                                <div class="stat__label">Technologies Mastered</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat__number" data-count="3">0</div>
-                                <div class="stat__label">Years Learning</div>
+                    <div class="about__grid">
+                        <!-- Personal Image Card -->
+                        <div class="about__image-card">
+                            <div class="about__image-wrapper">
+                                <img src="assets/img/about3.jpg" alt="Mihiri Tharushika" class="about__image" loading="lazy">
+                                <div class="about__image-overlay">
+                                    <div class="about__floating-badge">
+                                        <i data-lucide="code-2"></i>
+                                        <span>Full-Stack Developer</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="about__info">
-                            <div class="info__item">
+                        <!-- Content Card -->
+                        <div class="about__content-card">
+                            <div class="about__intro">
+                                <h3 class="about__title">
+                                    <span class="about__title-gradient">Hello!</span> I'm Mihiri
+                                </h3>
+                                <p class="about__subtitle">Full-Stack Developer & Problem Solver</p>
+                            </div>
+
+                            <div class="about__description">
+                                <p>
+                                    I'm a passionate Full-Stack Developer with a keen eye for creating innovative digital solutions. 
+                                    Currently pursuing my Information Technology degree at SLIIT, I specialize in modern web 
+                                    technologies and have a strong foundation in both frontend and backend development.
+                                </p>
+                                <p>
+                                    My journey in technology is driven by curiosity and a desire to solve real-world problems 
+                                    through code. I enjoy collaborating with teams to bring ideas to life and am always eager 
+                                    to learn new technologies and methodologies.
+                                </p>
+                            </div>
+
+                            <div class="about__highlights">
+                                <div class="highlight__item">
+                                    <div class="highlight__icon">
+                                        <i data-lucide="target"></i>
+                                    </div>
+                                    <div class="highlight__content">
+                                        <h4>Mission</h4>
+                                        <p>Creating impactful digital solutions that make a difference</p>
+                                    </div>
+                                </div>
+                                <div class="highlight__item">
+                                    <div class="highlight__icon">
+                                        <i data-lucide="trending-up"></i>
+                                    </div>
+                                    <div class="highlight__content">
+                                        <h4>Growth</h4>
+                                        <p>Continuously learning and adapting to new technologies</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="about__stats-section">
+                        <div class="about__stats">
+                            <div class="stat__card">
+                                <div class="stat__icon">
+                                    <i data-lucide="folder-check"></i>
+                                </div>
+                                <div class="stat__content">
+                                    <div class="stat__number" data-count="6">0</div>
+                                    <div class="stat__label">Projects Completed</div>
+                                </div>
+                            </div>
+                            <div class="stat__card">
+                                <div class="stat__icon">
+                                    <i data-lucide="layers"></i>
+                                </div>
+                                <div class="stat__content">
+                                    <div class="stat__number" data-count="8">0</div>
+                                    <div class="stat__label">Technologies</div>
+                                </div>
+                            </div>
+                            <div class="stat__card">
+                                <div class="stat__icon">
+                                    <i data-lucide="clock"></i>
+                                </div>
+                                <div class="stat__content">
+                                    <div class="stat__number" data-count="3">0</div>
+                                    <div class="stat__label">Years Learning</div>
+                                </div>
+                            </div>
+                            <div class="stat__card">
+                                <div class="stat__icon">
+                                    <i data-lucide="coffee"></i>
+                                </div>
+                                <div class="stat__content">
+                                    <div class="stat__number" data-count="100">0</div>
+                                    <div class="stat__label">Cups of Coffee</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Cards -->
+                    <div class="about__info-grid">
+                        <div class="info__card">
+                            <div class="info__icon">
                                 <i data-lucide="map-pin"></i>
-                                <span>Akurassa, Matara, Sri Lanka</span>
                             </div>
-                            <div class="info__item">
+                            <div class="info__content">
+                                <h4>Location</h4>
+                                <p>Akurassa, Matara, Sri Lanka</p>
+                            </div>
+                        </div>
+                        <div class="info__card">
+                            <div class="info__icon">
                                 <i data-lucide="graduation-cap"></i>
-                                <span>3rd Year IT Student at SLIIT</span>
                             </div>
-                            <div class="info__item">
+                            <div class="info__content">
+                                <h4>Education</h4>
+                                <p>3rd Year IT Student at SLIIT</p>
+                            </div>
+                        </div>
+                        <div class="info__card">
+                            <div class="info__icon">
                                 <i data-lucide="briefcase"></i>
-                                <span>Seeking Internship Opportunities</span>
+                            </div>
+                            <div class="info__content">
+                                <h4>Status</h4>
+                                <p>Seeking Internship Opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="about__cta">
+                        <div class="about__cta-content">
+                            <h3>Let's Create Something Amazing Together</h3>
+                            <p>Ready to turn your ideas into reality? Let's collaborate!</p>
+                            <div class="about__cta-buttons">
+                                <a href="#contact" class="btn btn--primary">
+                                    <span>Get In Touch</span>
+                                    <i data-lucide="arrow-right"></i>
+                                </a>
+                                <a href="assets/cv/Tharu cv.pdf" target="_blank" class="btn btn--outline">
+                                    <span>View Resume</span>
+                                    <i data-lucide="download"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
