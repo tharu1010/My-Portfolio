@@ -199,7 +199,7 @@
                             </div>
                         </div>
 
-                        <div class="about__info">
+                        <!-- <div class="about__info">
                             <div class="info__item">
                                 <i data-lucide="map-pin"></i>
                                 <span>Akurassa, Matara, Sri Lanka</span>
@@ -212,7 +212,7 @@
                                 <i data-lucide="briefcase"></i>
                                 <span>Seeking Internship Opportunities</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -622,72 +622,108 @@
                 </div>
 
                 <div class="contact__container">
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="map-pin"></i>
-                            </div>
-                            <h3 class="contact__title">Location</h3>
-                            <p class="contact__text">Akurassa, Matara<br>Sri Lanka</p>
+                    <!-- Contact Information Panel -->
+                    <div class="contact__info-panel">
+                        <div class="contact__info-header">
+                            <h3>Get In Touch</h3>
+                            <p>Feel free to reach out for collaborations or just a friendly hello!</p>
                         </div>
 
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="mail"></i>
+                        <div class="contact__info-list">
+                            <div class="contact__info-item">
+                                <div class="contact__info-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="contact__info-content">
+                                    <h4>Email</h4>
+                                    <a href="mailto:mihiritharushika030@gmail.com">mihiritharushika030@gmail.com</a>
+                                </div>
                             </div>
-                            <h3 class="contact__title">Email</h3>
-                            <a href="mailto:mihiritharushika030@gmail.com" class="contact__text">
-                                mihiritharushika030@gmail.com
-                            </a>
+
+                            <div class="contact__info-item">
+                                <div class="contact__info-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div class="contact__info-content">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+94718890541">+94 71 889 0541</a>
+                                </div>
+                            </div>
+
+                            <div class="contact__info-item">
+                                <div class="contact__info-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="contact__info-content">
+                                    <h4>Location</h4>
+                                    <p>Akurassa, Matara, Sri Lanka</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="linkedin"></i>
+                        <div class="contact__social-section">
+                            <h4>Connect with me</h4>
+                            <div class="contact__social-links">
+                                <a href="http://linkedin.com/in/mihiri-tharushika-8b266a322" target="_blank" class="contact__social-link">
+                                    <i data-lucide="linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/IT22914200" target="_blank" class="contact__social-link">
+                                    <i data-lucide="github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="#" target="_blank" class="contact__social-link">
+                                    <i data-lucide="instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
                             </div>
-                            <h3 class="contact__title">LinkedIn</h3>
-                            <a href="http://linkedin.com/in/mihiri-tharushika-8b266a322" target="_blank" class="contact__text">
-                                Connect with me
-                            </a>
                         </div>
 
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="github"></i>
-                            </div>
-                            <h3 class="contact__title">GitHub</h3>
-                            <a href="https://github.com/IT22914200" target="_blank" class="contact__text">
-                                View my code
+                        <div class="contact__download">
+                            <a href="assets/cv/Tharu cv.pdf" target="_blank" class="btn btn--outline btn--download">
+                                <i data-lucide="download"></i>
+                                <span>Download Resume</span>
                             </a>
                         </div>
                     </div>
 
-                    <form class="contact__form" id="contactForm">
-                        <div class="form__group">
-                            <input type="text" name="name" class="form__input" placeholder=" " required>
-                            <label class="form__label">Your Name</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <input type="email" name="email" class="form__input" placeholder=" " required>
-                            <label class="form__label">Your Email</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <input type="text" name="subject" class="form__input" placeholder=" " required>
-                            <label class="form__label">Subject</label>
-                        </div>
-                        
-                        <div class="form__group">
-                            <textarea name="message" class="form__input form__textarea" placeholder=" " required></textarea>
-                            <label class="form__label">Your Message</label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn--primary btn--full">
-                            <span>Send Message</span>
-                            <i data-lucide="send"></i>
-                        </button>
-                    </form>
+                    <!-- Contact Form Panel -->
+                    <div class="contact__form-panel">
+                        <form class="contact__form" id="contactForm">
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <input type="text" name="name" class="form__input" placeholder="John Doe" required>
+                                    <label class="form__label">Full Name</label>
+                                </div>
+                            </div>
+
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <input type="email" name="email" class="form__input" placeholder="john@example.com" required>
+                                    <label class="form__label">Email Address</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <input type="text" name="subject" class="form__input" placeholder="Project Collaboration" required>
+                                    <label class="form__label">Subject</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <textarea name="message" class="form__input form__textarea" placeholder="Tell me about your project..." required></textarea>
+                                    <label class="form__label">Message</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary btn--send">
+                                <span>Send Message</span>
+                                <i data-lucide="send"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
