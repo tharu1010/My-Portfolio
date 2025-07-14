@@ -1045,6 +1045,8 @@ img {
   background: var(--surface-color-alt);
 }
 
+
+/* Colorful Skill Icons */
 .skill__icon {
   width: 50px;
   height: 50px;
@@ -1054,6 +1056,193 @@ img {
   background: var(--glass-bg);
   border-radius: var(--radius-lg);
   font-size: var(--fs-xl);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+/* Example color classes for different skills/technologies */
+.skill__icon.html {
+  background: #e44d26;
+  color: #fff;
+}
+.skill__icon.css {
+  background: #1572b6;
+  color: #fff;
+}
+.skill__icon.js {
+  background: #f7df1e;
+  color: #222;
+}
+.skill__icon.nodejs {
+  background: #3c873a;
+  color: #fff;
+}
+.skill__icon.react {
+  background: #61dafb;
+  color: #222;
+}
+.skill__icon.mongo {
+  background: #47a248;
+  color: #fff;
+}
+.skill__icon.express {
+  background: #222;
+  color: #fff;
+}
+.skill__icon.git {
+  background: #f34f29;
+  color: #fff;
+}
+.skill__icon.python {
+  background: #3776ab;
+  color: #fff;
+}
+.skill__icon.c {
+  background: #00599c;
+  color: #fff;
+}
+.skill__icon.cpp {
+  background: #00599c;
+  color: #fff;
+}
+.skill__icon.firebase {
+  background: #ffca28;
+  color: #222;
+}
+.skill__icon.docker {
+  background: #2496ed;
+  color: #fff;
+}
+.skill__icon.linux {
+  background: #333;
+  color: #fff;
+}
+.skill__icon.figma {
+  background: #a259ff;
+  color: #fff;
+}
+.skill__icon.wordpress {
+  background: #21759b;
+  color: #fff;
+}
+.skill__icon.bootstrap {
+  background: #7952b3;
+  color: #fff;
+}
+.skill__icon.sass {
+  background: #cc6699;
+  color: #fff;
+}
+.skill__icon.java {
+  background: #007396;
+  color: #fff;
+}
+.skill__icon.php {
+  background: #777bb4;
+  color: #fff;
+}
+.skill__icon.mysql {
+  background: #00758f;
+  color: #fff;
+}
+.skill__icon.redux {
+  background: #764abc;
+  color: #fff;
+}
+.skill__icon.typescript {
+  background: #3178c6;
+  color: #fff;
+}
+.skill__icon.api {
+  background: #00bcd4;
+  color: #fff;
+}
+.skill__icon.graphql {
+  background: #e535ab;
+  color: #fff;
+}
+.skill__icon.android {
+  background: #3ddc84;
+  color: #222;
+}
+.skill__icon.flutter {
+  background: #02569b;
+  color: #fff;
+}
+.skill__icon.vue {
+  background: #42b883;
+  color: #fff;
+}
+.skill__icon.angular {
+  background: #dd0031;
+  color: #fff;
+}
+.skill__icon.swift {
+  background: #fa7343;
+  color: #fff;
+}
+.skill__icon.ruby {
+  background: #cc342d;
+  color: #fff;
+}
+.skill__icon.go {
+  background: #00add8;
+  color: #fff;
+}
+.skill__icon.aws {
+  background: #ff9900;
+  color: #222;
+}
+.skill__icon.azure {
+  background: #007fff;
+  color: #fff;
+}
+.skill__icon.heroku {
+  background: #430098;
+  color: #fff;
+}
+.skill__icon.firebase {
+  background: #ffca28;
+  color: #222;
+}
+.skill__icon.matlab {
+  background: #e16737;
+  color: #fff;
+}
+.skill__icon.r {
+  background: #276dc3;
+  color: #fff;
+}
+.skill__icon.spss {
+  background: #306998;
+  color: #fff;
+}
+.skill__icon.tableau {
+  background: #e97627;
+  color: #fff;
+}
+.skill__icon.powerbi {
+  background: #f2c811;
+  color: #222;
+}
+.skill__icon.seo {
+  background: #00c853;
+  color: #fff;
+}
+.skill__icon.wordpress {
+  background: #21759b;
+  color: #fff;
+}
+.skill__icon.shopify {
+  background: #96bf48;
+  color: #fff;
+}
+.skill__icon.adobe {
+  background: #ff0000;
+  color: #fff;
+}
+.skill__icon.office {
+  background: #ea7600;
+  color: #fff;
 }
 
 .skill__fallback {
