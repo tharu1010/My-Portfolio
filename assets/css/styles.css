@@ -321,7 +321,6 @@ img {
   display: flex;
   align-items: center;
   gap: var(--space-xl);
-  list-style: none;
 }
 
 .nav__link {
@@ -374,7 +373,6 @@ img {
 .nav__toggle,
 .nav__close {
   display: none;
-}
   list-style: none;
 }
 
@@ -1564,12 +1562,28 @@ img {
 }
 
 .contact__container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+}
+
+/* Compact contact form fields */
+.contact__form input,
+.contact__form textarea {
+  min-height: 32px;
+  height: 38px;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+.contact__form textarea {
+  min-height: 60px;
+  height: 60px;
+}
+.contact__form .form__group {
+  margin-bottom: 0.75rem;
 }
 
 .contact__data {
