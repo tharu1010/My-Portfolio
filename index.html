@@ -617,72 +617,63 @@
         <section class="contact section" id="contact">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Let's Work Together</h2>
-                    <p class="section__subtitle">Ready to bring your ideas to life</p>
+                    <h2 class="section__title">Contact Me</h2>
+                    <p class="section__subtitle">Let's connect and collaborate!</p>
                 </div>
-
-                <div class="contact__container">
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="map-pin"></i>
+                <div class="contact__container modern-contact">
+                    <!-- Left Side: Contact Info Table -->
+                    <div class="modern-contact__info">
+                        <div class="modern-contact__card modern-contact__card--block">
+                            <div class="modern-contact__row">
+                                <div class="modern-contact__icon modern-contact__icon--bg"><i data-lucide="mail"></i></div>
+                                <div>
+                                    <h3 class="modern-contact__title">Email</h3>
+                                    <div class="modern-contact__text">nadehewapathirana987@gmail.com</div>
+                                </div>
                             </div>
-                            <h3 class="contact__title">Location</h3>
-                            <p class="contact__text">Akurassa, Matara<br>Sri Lanka</p>
-                        </div>
-
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="mail"></i>
+                            <div class="modern-contact__row">
+                                <div class="modern-contact__icon modern-contact__icon--bg"><i data-lucide="phone"></i></div>
+                                <div>
+                                    <h3 class="modern-contact__title">Phone</h3>
+                                    <div class="modern-contact__text">+94 71 889 0541</div>
+                                </div>
                             </div>
-                            <h3 class="contact__title">Email</h3>
-                            <a href="mailto:mihiritharushika030@gmail.com" class="contact__text">
-                                mihiritharushika030@gmail.com
-                            </a>
-                        </div>
-
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="linkedin"></i>
+                            <div class="modern-contact__row">
+                                <div class="modern-contact__icon modern-contact__icon--bg"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <h3 class="modern-contact__title">Location</h3>
+                                    <div class="modern-contact__text">Malabe, Sri Lanka</div>
+                                </div>
                             </div>
-                            <h3 class="contact__title">LinkedIn</h3>
-                            <a href="http://linkedin.com/in/mihiri-tharushika-8b266a322" target="_blank" class="contact__text">
-                                Connect with me
-                            </a>
                         </div>
-
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i data-lucide="github"></i>
-                            </div>
-                            <h3 class="contact__title">GitHub</h3>
-                            <a href="https://github.com/IT22914200" target="_blank" class="contact__text">
-                                View my code
-                            </a>
+                        <div class="modern-contact__social-table">
+                            <div class="modern-contact__social-title">Connect with me</div>
+                            <a href="#" class="modern-contact__social-row"><i data-lucide="linkedin"></i> <span>LinkedIn</span></a>
+                            <a href="#" class="modern-contact__social-row"><i data-lucide="github"></i> <span>GitHub</span></a>
+                            <a href="#" class="modern-contact__social-row"><i data-lucide="instagram"></i> <span>Instagram</span></a>
                         </div>
+                        <a href="assets/cv/Tharu cv.pdf" class="btn btn--outline resume-btn" download>
+                            <i data-lucide="download"></i> Download Resume
+                        </a>
                     </div>
-
-                    <form class="contact__form" id="contactForm">
+                    <!-- Right Side: Contact Form -->
+                    <form class="modern-contact__form" id="contactForm">
                         <div class="form__group">
-                            <input type="text" name="name" class="form__input" placeholder=" " required>
-                            <label class="form__label">Your Name</label>
+                            <input type="text" name="fullname" class="form__input" placeholder=" " required>
+                            <label class="form__label">Full Name</label>
                         </div>
-                        
                         <div class="form__group">
                             <input type="email" name="email" class="form__input" placeholder=" " required>
-                            <label class="form__label">Your Email</label>
+                            <label class="form__label">Email Address</label>
                         </div>
-                        
                         <div class="form__group">
                             <input type="text" name="subject" class="form__input" placeholder=" " required>
                             <label class="form__label">Subject</label>
                         </div>
-                        
                         <div class="form__group">
                             <textarea name="message" class="form__input form__textarea" placeholder=" " required></textarea>
-                            <label class="form__label">Your Message</label>
+                            <label class="form__label">Message</label>
                         </div>
-                        
                         <button type="submit" class="btn btn--primary btn--full">
                             <span>Send Message</span>
                             <i data-lucide="send"></i>
