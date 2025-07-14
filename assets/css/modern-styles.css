@@ -1,3 +1,94 @@
+/*=============== TREE TIMELINE ===============*/
+.tree-timeline {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 30px;
+  max-width: 800px;
+  list-style: none;
+}
+
+.tree-timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.tree-timeline__item {
+  position: relative;
+  margin-bottom: var(--space-3xl);
+  min-height: 80px;
+}
+
+.tree-timeline__marker {
+  position: absolute;
+  left: 6px;
+  top: 32px;
+  width: 24px;
+  height: 24px;
+  background: var(--primary-color);
+  border: 4px solid var(--bg-color);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tree-timeline__content {
+  margin-left: 50px;
+  padding: var(--space-xl);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform var(--transition-fast);
+  position: relative;
+}
+
+.tree-timeline__content:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 4px 24px rgba(0, 120, 255, 0.10);
+}
+
+.tree-timeline__content .timeline__period {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.tree-timeline__content .timeline__title {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-color);
+}
+
+.tree-timeline__content .timeline__subtitle {
+  font-size: var(--fs-base);
+  color: var(--primary-color);
+  margin-bottom: var(--space-md);
+  font-weight: 500;
+}
+
+.tree-timeline__content .timeline__description {
+  color: var(--text-color-light);
+  margin-bottom: var(--space-md);
+}
+
+.tree-timeline__content .timeline__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
 /*=============== MODERN VARIABLES ===============*/
 :root {
   /* Colors */
@@ -24,10 +115,10 @@
     hsl(var(--primary-hue), var(--primary-sat), 60%) 100%);
 
   /* Dark Theme */
-  --bg-color: hsl(220, 20%, 6%);
-  --bg-color-alt: hsl(220, 20%, 8%);
-  --surface-color: hsl(220, 20%, 10%);
-  --surface-color-alt: hsl(220, 20%, 12%);
+  --bg-color: #000000;
+  --bg-color-alt: #111111;
+  --surface-color: #181818;
+  --surface-color-alt: #222222;
 
   /* Text Colors */
   --text-color: #f8fbff;
@@ -97,10 +188,10 @@
 
 /* Light Theme Variables */
 [data-theme="light"] {
-  --bg-color: hsl(220, 20%, 98%);
-  --bg-color-alt: hsl(220, 20%, 96%);
-  --surface-color: hsl(220, 20%, 94%);
-  --surface-color-alt: hsl(220, 20%, 92%);
+  --bg-color: #000000;
+  --bg-color-alt: #111111;
+  --surface-color: #181818;
+  --surface-color-alt: #222222;
   
   --text-color: hsl(220, 20%, 15%);
   --text-color-light: hsl(220, 20%, 30%);
@@ -1005,36 +1096,97 @@ img {
   font-weight: 600;
 }
 
+
+/* Modern Soft Skills Section */
 .soft-skills__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-2xl);
+  margin-top: var(--space-xl);
 }
 
 .soft-skill__item {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  background: var(--surface-color);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-fast);
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 90px;
 }
 
 .soft-skill__item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: var(--shadow-xl);
   background: var(--surface-color-alt);
 }
 
-.soft-skill__item i {
-  font-size: var(--fs-xl);
-  color: var(--primary-color);
+
+/* Colorful Soft Skill Icons */
+.soft-skill__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-2xl);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-.soft-skill__item span {
-  font-size: var(--fs-base);
-  font-weight: 500;
+/* Example color classes for different soft skills */
+.soft-skill__icon.communication {
+  background: #1da1f2;
+}
+.soft-skill__icon.teamwork {
+  background: #ff9800;
+}
+.soft-skill__icon.problem {
+  background: #e44d26;
+}
+.soft-skill__icon.leadership {
+  background: #8e24aa;
+}
+.soft-skill__icon.creativity {
+  background: #43a047;
+}
+.soft-skill__icon.adaptability {
+  background: #00bcd4;
+}
+.soft-skill__icon.time {
+  background: #fbc02d;
+}
+.soft-skill__icon.critical {
+  background: #c62828;
+}
+.soft-skill__icon.positivity {
+  background: #f06292;
+}
+.soft-skill__icon.organization {
+  background: #3949ab;
+}
+
+.soft-skill__item:hover .soft-skill__icon {
+  filter: brightness(1.15) saturate(1.2);
+}
+
+.soft-skill__label {
+  font-size: var(--fs-lg);
+  font-weight: 600;
   color: var(--text-color);
+  letter-spacing: 0.01em;
+  transition: color var(--transition-fast);
+}
+
+.soft-skill__item:hover .soft-skill__label {
+  color: var(--primary-color);
 }
 
 /*=============== PROJECTS SECTION ===============*/
@@ -1169,6 +1321,8 @@ img {
   gap: var(--space-sm);
 }
 
+
+/* Project Tech Tag Colors */
 .tech__tag {
   padding: var(--space-xs) var(--space-md);
   background: var(--surface-color);
@@ -1176,6 +1330,30 @@ img {
   border-radius: var(--radius-md);
   font-size: var(--fs-xs);
   font-weight: 500;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.tech__tag.html {
+  background: #e44d26;
+  color: #fff;
+}
+.tech__tag.css {
+  background: #1572b6;
+  color: #fff;
+}
+.tech__tag.nodejs {
+  background: #3c873a;
+  color: #fff;
+}
+
+.tech__tag.html:hover {
+  background: #ff6b2d;
+}
+.tech__tag.css:hover {
+  background: #1da1f2;
+}
+.tech__tag.nodejs:hover {
+  background: #5fa04e;
 }
 
 /*=============== CONTACT SECTION ===============*/
@@ -1292,6 +1470,7 @@ img {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
@@ -1302,14 +1481,50 @@ img {
   margin-bottom: var(--space-sm);
   transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
 }
-.modern-contact__social-row i {
-  font-size: var(--fs-lg);
-  color: var(--primary-color);
+
+/* Brand color backgrounds for each social row */
+.modern-contact__social-row.github {
+  --brand-color: #181717;
 }
-.modern-contact__social-row:hover {
-  background: var(--primary-color);
+.modern-contact__social-row.linkedin {
+  --brand-color: #0077b5;
+}
+.modern-contact__social-row.instagram {
+  --brand-color: #E4405F;
+}
+
+.modern-contact__social-row.github:hover {
+  background: #181717;
   color: #fff;
   box-shadow: var(--shadow-md);
+}
+.modern-contact__social-row.linkedin:hover {
+  background: #0077b5;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.modern-contact__social-row.instagram:hover {
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.modern-contact__social-row.instagram i {
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.modern-contact__social-row.github i {
+  color: #181717;
+}
+.modern-contact__social-row.linkedin i {
+  color: #0077b5;
+}
+.modern-contact__social-row.instagram i {
+  color: #E4405F;
 }
 
 .resume-btn {
