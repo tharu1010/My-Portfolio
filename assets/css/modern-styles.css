@@ -1,20 +1,20 @@
 /*=============== MODERN VARIABLES ===============*/
 :root {
   /* Colors */
-  --primary-hue: 200;
+  --primary-hue: 210; /* Blue */
   --primary-sat: 100%;
-  --primary-lit: 50%;
-  
-  --accent-hue: 280;
-  --accent-sat: 100%;
-  --accent-lit: 60%;
-  
+  --primary-lit: 55%;
+
+  --accent-hue: 220; /* Lighter blue */
+  --accent-sat: 90%;
+  --accent-lit: 70%;
+
   /* Main Colors */
   --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-lit));
   --primary-color-alt: hsl(var(--primary-hue), var(--primary-sat), 45%);
   --accent-color: hsl(var(--accent-hue), var(--accent-sat), var(--accent-lit));
-  --accent-color-alt: hsl(var(--accent-hue), var(--accent-sat), 55%);
-  
+  --accent-color-alt: hsl(var(--accent-hue), var(--accent-sat), 60%);
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, 
     hsl(var(--primary-hue), var(--primary-sat), var(--primary-lit)) 0%, 
@@ -22,22 +22,22 @@
   --gradient-secondary: linear-gradient(135deg, 
     hsl(var(--primary-hue), var(--primary-sat), 30%) 0%, 
     hsl(var(--primary-hue), var(--primary-sat), 60%) 100%);
-  
+
   /* Dark Theme */
   --bg-color: hsl(220, 20%, 6%);
   --bg-color-alt: hsl(220, 20%, 8%);
   --surface-color: hsl(220, 20%, 10%);
   --surface-color-alt: hsl(220, 20%, 12%);
-  
+
   /* Text Colors */
-  --text-color: hsl(220, 20%, 95%);
-  --text-color-light: hsl(220, 20%, 80%);
-  --text-color-lighter: hsl(220, 20%, 65%);
-  
+  --text-color: #f8fbff;
+  --text-color-light: #c7e0fa;
+  --text-color-lighter: #a3bcd6;
+
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(0, 120, 255, 0.18);
+  --glass-shadow: 0 8px 32px rgba(0, 120, 255, 0.10);
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -317,23 +317,30 @@ img {
   margin-left: 2px;
 }
 
+
+/* Compact, right-aligned nav links */
 .nav__list {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  justify-content: flex-end;
+  gap: var(--space-md);
   list-style: none;
+  margin-left: auto;
 }
+
 
 .nav__link {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-md);
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
   border-radius: var(--radius-lg);
   font-weight: 500;
   color: var(--text-color-light);
   transition: all var(--transition-fast);
   position: relative;
+  font-size: var(--fs-sm);
+  min-width: 0;
 }
 
 .nav__link:hover,
