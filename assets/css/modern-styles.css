@@ -1065,8 +1065,8 @@ img {
   color: #fff;
 }
 .skill__icon.css {
-  background: #1572b6;
-  color: #fff;
+  background: #232323;
+  color: #FFF9E5;
 }
 .skill__icon.js {
   background: #f7df1e;
@@ -1097,12 +1097,12 @@ img {
   color: #fff;
 }
 .skill__icon.c {
-  background: #00599c;
-  color: #fff;
+  background: #232323;
+  color: #FFF9E5;
 }
 .skill__icon.cpp {
-  background: #00599c;
-  color: #fff;
+  background: #232323;
+  color: #FFF9E5;
 }
 .skill__icon.firebase {
   background: #ffca28;
@@ -1527,8 +1527,8 @@ img {
   color: #fff;
 }
 .tech__tag.css {
-  background: #1572b6;
-  color: #fff;
+  background: #232323;
+  color: #FFF9E5;
 }
 .tech__tag.nodejs {
   background: #3c873a;
@@ -1539,7 +1539,7 @@ img {
   background: #ff6b2d;
 }
 .tech__tag.css:hover {
-  background: #1da1f2;
+  background: #3a3a3a;
 }
 .tech__tag.nodejs:hover {
   background: #5fa04e;
