@@ -1,0 +1,479 @@
+/*=============== MODERN ANIMATIONS ENHANCEMENT ===============*/
+
+/* Fix for the text-fill-color error - removing duplicate property */
+.modern-contact__social-row.instagram i {
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/*=============== INTERSECTION OBSERVER ANIMATIONS ===============*/
+/* Add these classes via JavaScript for scroll-triggered animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.zoom-in.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*=============== ENHANCED BUTTON EFFECTS ===============*/
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.btn-enhanced:hover::before {
+  left: 100%;
+}
+
+.btn-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 191, 255, 0.4),
+    0 5px 15px rgba(0, 191, 255, 0.2);
+}
+
+/*=============== SKILL PROGRESS ANIMATION ===============*/
+.skill-progress-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: skillShimmer 2s ease infinite;
+}
+
+@keyframes skillShimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/*=============== CARD HOVER ANIMATIONS ===============*/
+.card-3d-hover {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d-hover:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+}
+
+.card-magnetic {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-magnetic:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(0, 191, 255, 0.1);
+}
+
+/*=============== TEXT ANIMATIONS ===============*/
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  transform: translateX(-100%);
+  animation: textReveal 1.5s ease forwards;
+}
+
+@keyframes textReveal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.typewriter-effect {
+  overflow: hidden;
+  border-right: 3px solid var(--primary-color);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) 1s 1 normal both, blinkCursor 1s steps(1) infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCursor {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-color);
+  }
+}
+
+/*=============== PARTICLE SYSTEM ===============*/
+.particles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatParticle 20s linear infinite;
+}
+
+.particle-dot:nth-child(odd) {
+  background: var(--accent-color);
+  animation-duration: 25s;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/*=============== LOADING STATES ===============*/
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    var(--surface-color) 25%,
+    var(--surface-color-alt) 50%,
+    var(--surface-color) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/*=============== SCROLL PROGRESS INDICATOR ===============*/
+.scroll-progress-circle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-color) var(--progress, 0%),
+    var(--surface-color) 0%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-progress-circle::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--bg-color);
+}
+
+.scroll-progress-circle i {
+  position: relative;
+  z-index: 1;
+  color: var(--text-color);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.scroll-progress-circle:hover {
+  transform: scale(1.1);
+}
+
+.scroll-progress-circle:hover i {
+  color: var(--primary-color);
+}
+
+/*=============== MODERN GRID ANIMATIONS ===============*/
+.stagger-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.stagger-grid > * {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stagger-grid.animate > *:nth-child(1) {
+  animation: staggerFadeIn 0.6s ease 0.1s forwards;
+}
+
+.stagger-grid.animate > *:nth-child(2) {
+  animation: staggerFadeIn 0.6s ease 0.2s forwards;
+}
+
+.stagger-grid.animate > *:nth-child(3) {
+  animation: staggerFadeIn 0.6s ease 0.3s forwards;
+}
+
+.stagger-grid.animate > *:nth-child(4) {
+  animation: staggerFadeIn 0.6s ease 0.4s forwards;
+}
+
+.stagger-grid.animate > *:nth-child(5) {
+  animation: staggerFadeIn 0.6s ease 0.5s forwards;
+}
+
+.stagger-grid.animate > *:nth-child(6) {
+  animation: staggerFadeIn 0.6s ease 0.6s forwards;
+}
+
+/*=============== INTERACTIVE CURSOR EFFECTS ===============*/
+.cursor-glow {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 191, 255, 0.6) 0%,
+    rgba(0, 191, 255, 0.3) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/*=============== MODERN MENU ANIMATIONS ===============*/
+.menu-hamburger {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-hamburger span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.menu-hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+.menu-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+}
+
+.menu-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 50%;
+}
+
+/*=============== GLASSMORPHISM ENHANCED ===============*/
+.glass-enhanced {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-enhanced:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/*=============== RESPONSIVE ANIMATIONS ===============*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-animate,
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .zoom-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-3d-hover:hover {
+    transform: none;
+  }
+  
+  .btn-enhanced:hover {
+    transform: translateY(-1px);
+  }
+  
+  .cursor-glow,
+  .cursor-trail {
+    display: none;
+  }
+}
+
+/*=============== DARK MODE SPECIFIC ANIMATIONS ===============*/
+@media (prefers-color-scheme: dark) {
+  .glass-enhanced {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-enhanced:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}

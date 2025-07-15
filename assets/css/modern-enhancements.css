@@ -1,0 +1,462 @@
+/*=============== MODERN ANIMATIONS FIX & ENHANCEMENT ===============*/
+
+/* Fix for duplicate CSS properties */
+.modern-contact__social-row.instagram i {
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/*=============== ADVANCED CSS ANIMATIONS ===============*/
+
+/* Modern CSS Grid Animations */
+@supports (display: grid) {
+  .modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .modern-grid > * {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: modernGridItem 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  .modern-grid > *:nth-child(1) { animation-delay: 0.1s; }
+  .modern-grid > *:nth-child(2) { animation-delay: 0.2s; }
+  .modern-grid > *:nth-child(3) { animation-delay: 0.3s; }
+  .modern-grid > *:nth-child(4) { animation-delay: 0.4s; }
+  .modern-grid > *:nth-child(5) { animation-delay: 0.5s; }
+  .modern-grid > *:nth-child(6) { animation-delay: 0.6s; }
+}
+
+@keyframes modernGridItem {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* CSS-only Typewriter Effect */
+.css-typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--primary-color);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.1em;
+  animation: 
+    css-typing 3.5s steps(40) 1s 1 normal both,
+    css-blink-caret 1s step-end infinite;
+}
+
+@keyframes css-typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes css-blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary-color); }
+}
+
+/* Modern Button Interactions */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(1px) translateZ(0);
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+.btn-modern:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 10px 30px rgba(0, 120, 255, 0.3),
+    0 0 30px rgba(0, 120, 255, 0.2);
+}
+
+.btn-modern:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Morphing Card Animation */
+.morph-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.morph-card:hover {
+  border-radius: 20px 5px 20px 5px;
+  transform: rotate3d(1, 1, 0, 10deg) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(0, 120, 255, 0.1);
+}
+
+/* Liquid Button Effect */
+.liquid-btn {
+  position: relative;
+  padding: 1rem 2rem;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.liquid-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.liquid-btn:hover {
+  color: white;
+}
+
+.liquid-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Floating Animation for Hero Elements */
+.float-animation {
+  animation: modernFloat 6s ease-in-out infinite;
+}
+
+.float-animation:nth-child(even) {
+  animation-delay: 3s;
+  animation-direction: reverse;
+}
+
+@keyframes modernFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(-2deg);
+  }
+}
+
+/* Text Shimmer Effect */
+.text-shimmer {
+  background: linear-gradient(
+    120deg,
+    var(--text-color) 0%,
+    var(--primary-color) 50%,
+    var(--text-color) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Advanced Scroll Indicators */
+.scroll-indicator {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.scroll-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.scroll-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.scroll-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.scroll-dot.active::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Modern Loading Animations */
+.modern-loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background: 
+    conic-gradient(from 0deg, var(--primary-color), var(--accent-color), var(--primary-color)),
+    linear-gradient(white, white);
+  background-clip: padding-box, content-box;
+  animation: modernSpin 1.5s linear infinite;
+}
+
+@keyframes modernSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Elastic Scale Animation */
+.elastic-scale {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.elastic-scale:hover {
+  transform: scale(1.05);
+}
+
+.elastic-scale:active {
+  transform: scale(0.95);
+}
+
+/* Sliding Text Animation */
+.slide-text {
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.slide-text:hover::before {
+  transform: translateY(0);
+}
+
+/* CSS-Only Parallax */
+.css-parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax-back {
+  transform: translateZ(-1px) scale(2);
+}
+
+.parallax-base {
+  transform: translateZ(0);
+}
+
+/* Modern Checkbox Animation */
+.modern-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.modern-checkbox:checked {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.modern-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: no-preference) {
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+/* GPU Acceleration for Animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Modern Focus States */
+.modern-focus:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(0, 120, 255, 0.3),
+    0 0 0 1px var(--primary-color);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .btn-modern,
+  .liquid-btn {
+    border: 2px solid currentColor;
+  }
+  
+  .text-shimmer {
+    -webkit-text-fill-color: unset;
+    background: unset;
+  }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+  .morph-card:hover {
+    box-shadow: 
+      0 20px 40px rgba(255, 255, 255, 0.05),
+      0 0 20px rgba(0, 120, 255, 0.2);
+  }
+}
+
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+  .morph-card:hover {
+    transform: none;
+    border-radius: var(--radius-xl);
+  }
+  
+  .btn-modern:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+  
+  .float-animation {
+    animation: none;
+  }
+  
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .float-animation,
+  .text-shimmer,
+  .modern-loader {
+    animation: none;
+  }
+  
+  .morph-card:hover,
+  .btn-modern:hover,
+  .elastic-scale:hover {
+    transform: none;
+  }
+}
