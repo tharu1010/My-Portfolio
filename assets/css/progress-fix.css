@@ -1,0 +1,103 @@
+/*=============== SKILLS PROGRESS BAR FIXES ===============*/
+
+/* Ensure progress bars are visible and properly styled */
+.skill__bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Fixed progress bar styling */
+.skill__progress {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--accent-color) 50%,
+    var(--primary-color) 100%
+  );
+  background-size: 200% 200%;
+  border-radius: 10px;
+  width: 0%;
+  position: relative;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
+  overflow: hidden;
+  min-height: 12px;
+  display: block;
+}
+
+/* Enhanced glow effect */
+.skill__progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: inherit;
+  opacity: 0.8;
+}
+
+/* Shimmer animation for active progress bars */
+.skill__progress.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: progressShimmer 2s ease-in-out infinite;
+}
+
+/* Progress animation keyframes */
+@keyframes progressShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Force visibility */
+.skills__grid .skill__item {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.skills__grid .skill__bar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.skills__grid .skill__progress {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Responsive fixes */
+@media screen and (max-width: 768px) {
+  .skill__bar {
+    height: 10px;
+  }
+  
+  .skill__progress {
+    min-height: 10px;
+  }
+}

@@ -1,0 +1,188 @@
+/* =============== ADVANCED SKILLS ANIMATIONS =============== */
+
+/* Icon Pulse Animation */
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Icon Glow Animation */
+@keyframes iconGlow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+/* Skill Icon Float Animation */
+@keyframes skillIconFloat {
+  0%, 100% { transform: scale(1.1) rotate(5deg) translateY(0px); }
+  50% { transform: scale(1.1) rotate(5deg) translateY(-5px); }
+}
+
+/* Progress Stripes Animation */
+@keyframes progressStripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+
+/* Progress Glow Animation */
+@keyframes progressGlow {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    filter: brightness(1) saturate(1); 
+  }
+  50% { 
+    background-position: 100% 50%; 
+    filter: brightness(1.2) saturate(1.3); 
+  }
+}
+
+/* Progress Shimmer Animation */
+@keyframes progressShimmer {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
+}
+
+/* Percentage Pulse Animation */
+@keyframes percentagePulse {
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: scale(0.8); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2); 
+  }
+}
+
+/* Soft Skill Icon Float Animation */
+@keyframes softSkillIconFloat {
+  0%, 100% { 
+    transform: scale(1.15) rotate(-5deg) translateY(0px); 
+  }
+  50% { 
+    transform: scale(1.15) rotate(-5deg) translateY(-4px); 
+  }
+}
+
+/* =============== SKILL MASTERY LEVELS =============== */
+
+.skill-mastery {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.skill__item:hover .skill-mastery {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.skill-mastery.expert {
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+.skill-mastery.intermediate {
+  background: linear-gradient(135deg, #ff9800 0%, #ef6c00 100%);
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.4);
+}
+
+.skill-mastery.beginner {
+  background: linear-gradient(135deg, #2196f3 0%, #1565c0 100%);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.4);
+}
+
+/* =============== INTERACTIVE SKILL TOOLTIPS =============== */
+
+.skill-tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-color);
+  color: var(--text-color);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skill-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--surface-color);
+}
+
+.skill__item:hover .skill-tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: 125%;
+}
+
+/* =============== RESPONSIVE SKILLS ENHANCEMENTS =============== */
+
+@media screen and (max-width: 768px) {
+  .skills__category {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+  
+  .skill__item {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+  }
+  
+  .skill__icon {
+    width: 50px;
+    height: 50px;
+    font-size: var(--fs-xl);
+  }
+  
+  .soft-skill__item {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+  
+  .soft-skill__icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills__grid {
+    gap: var(--space-lg);
+  }
+  
+  .skill__item {
+    padding: var(--space-lg);
+  }
+  
+  .skill__bar {
+    height: 10px;
+  }
+}
