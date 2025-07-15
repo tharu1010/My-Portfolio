@@ -1,0 +1,501 @@
+/*=============== HEADER ANIMATIONS ===============*/
+
+/* Header entrance animation */
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo pulse animation */
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Logo glow effect */
+@keyframes logoGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(138, 97, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(138, 97, 255, 0.6), 0 0 30px rgba(138, 97, 255, 0.4);
+  }
+}
+
+/* Navigation link slide effect */
+@keyframes navLinkSlide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Floating effect for header */
+@keyframes headerFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Gradient wave for active nav link */
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mobile menu slide animation */
+@keyframes mobileMenuSlide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Hamburger menu animation */
+@keyframes hamburgerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+/* Header shrink on scroll */
+@keyframes headerShrink {
+  from {
+    height: 80px;
+    padding: 1rem 0;
+  }
+  to {
+    height: 60px;
+    padding: 0.5rem 0;
+  }
+}
+
+/*=============== ENHANCED HEADER STYLES ===============*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(16, 20, 38, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(138, 97, 255, 0.1);
+  z-index: var(--z-fixed);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: headerSlideDown 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled {
+  background: rgba(16, 20, 38, 0.98);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(138, 97, 255, 0.1);
+  transform: translateY(0);
+  animation: headerFloat 6s ease-in-out infinite;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/*=============== ENHANCED NAVIGATION ===============*/
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 2rem;
+  position: relative;
+}
+
+/*=============== LOGO ANIMATIONS ===============*/
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav__logo:hover {
+  transform: scale(1.05);
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+.nav__logo-text {
+  background: linear-gradient(270deg, #8A61FF, #FF6B9D, #8A61FF);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientWave 3s ease infinite;
+  position: relative;
+}
+
+.nav__logo-text:hover {
+  animation: gradientWave 1s ease infinite, logoGlow 2s ease-in-out infinite;
+}
+
+.nav__logo-dot {
+  color: var(--accent-color);
+  margin-left: 2px;
+  animation: logoPulse 2s ease-in-out infinite alternate;
+}
+
+/*=============== NAVIGATION LINKS ===============*/
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav__item {
+  animation: navLinkSlide 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+  opacity: 0;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-size: 0.9rem;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.nav__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(138, 97, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav__link:hover::before {
+  left: 100%;
+}
+
+.nav__link:hover {
+  color: #8A61FF;
+  background: rgba(138, 97, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px rgba(138, 97, 255, 0.2),
+    0 0 20px rgba(138, 97, 255, 0.1);
+}
+
+.nav__link.active {
+  color: #8A61FF;
+  background: linear-gradient(45deg, rgba(138, 97, 255, 0.2), rgba(255, 107, 157, 0.1));
+  background-size: 200% 200%;
+  animation: gradientWave 3s ease infinite;
+  box-shadow: 
+    0 5px 15px rgba(138, 97, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.nav__link i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.nav__link:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/*=============== THEME TOGGLE ANIMATIONS ===============*/
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background: rgba(138, 97, 255, 0.1);
+  color: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(138, 97, 255, 0.3), transparent);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.theme-toggle:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.theme-toggle:hover {
+  background: rgba(138, 97, 255, 0.2);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 
+    0 10px 25px rgba(138, 97, 255, 0.3),
+    0 0 20px rgba(138, 97, 255, 0.2);
+}
+
+.theme-toggle i {
+  transition: all 0.3s ease;
+  z-index: 1;
+  position: relative;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(180deg) scale(1.1);
+  color: #8A61FF;
+}
+
+/*=============== MOBILE NAVIGATION ANIMATIONS ===============*/
+
+.nav__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background: rgba(138, 97, 255, 0.1);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav__toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(138, 97, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav__toggle:hover::before {
+  left: 100%;
+}
+
+.nav__toggle:hover {
+  background: rgba(138, 97, 255, 0.2);
+  transform: scale(1.05);
+  color: #8A61FF;
+}
+
+.nav__toggle.active {
+  animation: hamburgerRotate 0.3s ease;
+  background: rgba(138, 97, 255, 0.3);
+}
+
+/*=============== SCROLL EFFECTS ===============*/
+
+.header.hide-on-scroll {
+  transform: translateY(-100%);
+}
+
+.header.show-on-scroll {
+  transform: translateY(0);
+  animation: headerSlideDown 0.4s ease;
+}
+
+/*=============== MOBILE RESPONSIVE ===============*/
+
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(16, 20, 38, 0.98);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-left: 1px solid rgba(138, 97, 255, 0.2);
+    padding: 4rem 2rem 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+
+  .nav__menu.show {
+    right: 0;
+    animation: mobileMenuSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav__item {
+    width: 100%;
+    animation: navLinkSlide 0.6s ease forwards;
+    animation-delay: calc(var(--i) * 0.1s + 0.2s);
+  }
+
+  .nav__link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(138, 97, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+  }
+
+  .nav__close:hover {
+    background: rgba(138, 97, 255, 0.3);
+    transform: scale(1.1) rotate(90deg);
+    color: #8A61FF;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__actions {
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/*=============== LOADING ANIMATION ===============*/
+
+.nav__item:nth-child(1) { --i: 0; }
+.nav__item:nth-child(2) { --i: 1; }
+.nav__item:nth-child(3) { --i: 2; }
+.nav__item:nth-child(4) { --i: 3; }
+.nav__item:nth-child(5) { --i: 4; }
+.nav__item:nth-child(6) { --i: 5; }
+
+/*=============== GLASSMORPHISM ENHANCEMENT ===============*/
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(138, 97, 255, 0.05) 0%, 
+    rgba(255, 107, 157, 0.05) 50%, 
+    rgba(138, 97, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.header:hover::before {
+  opacity: 1;
+}
+
+/*=============== PERFORMANCE OPTIMIZATIONS ===============*/
+
+.nav__link,
+.theme-toggle,
+.nav__toggle,
+.nav__logo {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .nav__link,
+  .nav__logo,
+  .theme-toggle,
+  .nav__toggle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
