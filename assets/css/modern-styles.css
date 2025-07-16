@@ -51,7 +51,7 @@
 
 .tree-timeline__content:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 4px 24px rgba(0, 120, 255, 0.10);
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.10);
 }
 
 .tree-timeline__content .timeline__period {
@@ -92,13 +92,13 @@
 /*=============== MODERN VARIABLES ===============*/
 :root {
   /* Colors */
-  --primary-hue: 210; /* Blue */
-  --primary-sat: 100%;
-  --primary-lit: 55%;
+  --primary-hue: 215; /* Dark Blue */
+  --primary-sat: 85%;
+  --primary-lit: 35%;
 
-  --accent-hue: 220; /* Lighter blue */
-  --accent-sat: 90%;
-  --accent-lit: 70%;
+  --accent-hue: 210; /* Light Blue */
+  --accent-sat: 60%;
+  --accent-lit: 80%;
 
   /* Main Colors */
   --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-lit));
@@ -114,21 +114,21 @@
     hsl(var(--primary-hue), var(--primary-sat), 30%) 0%, 
     hsl(var(--primary-hue), var(--primary-sat), 60%) 100%);
 
-  /* Dark Gray & Cream Theme */
-  --bg-color: #232323;
-  --bg-color-alt: #2d2d2d;
-  --surface-color: #353535;
-  --surface-color-alt: #44403c;
+  /* Dark Theme */
+  --bg-color: #000000;
+  --bg-color-alt: #111111;
+  --surface-color: #181818;
+  --surface-color-alt: #222222;
 
   /* Text Colors */
-  --text-color: #FFF9E5;
-  --text-color-light: #f5e9c8;
-  --text-color-lighter: #e0d3b8;
+  --text-color: #ffffff;
+  --text-color-light: #ffffff;
+  --text-color-lighter: #ffffff;
 
   /* Glassmorphism */
-  --glass-bg: rgba(255, 249, 229, 0.08);
-  --glass-border: rgba(255, 249, 229, 0.18);
-  --glass-shadow: 0 8px 32px rgba(255, 249, 229, 0.10);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(37, 99, 235, 0.18);
+  --glass-shadow: 0 8px 32px rgba(37, 99, 235, 0.10);
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -188,10 +188,10 @@
 
 /* Light Theme Variables */
 [data-theme="light"] {
-  --bg-color: #f5e9c8;
-  --bg-color-alt: #f9f6ef;
-  --surface-color: #f3e7c3;
-  --surface-color-alt: #e0d3b8;
+  --bg-color: #ffffff;
+  --bg-color-alt: #f8f9fa;
+  --surface-color: #ffffff;
+  --surface-color-alt: #f1f3f5;
   
   --text-color: #232323;
   --text-color-light: #44403c;
@@ -264,23 +264,38 @@ img {
 .section__header {
   text-align: center;
   margin-bottom: var(--space-3xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section__title {
   font-size: var(--fs-4xl);
   font-weight: 700;
   margin-bottom: var(--space-md);
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-sm);
+}
+
+.section__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
   background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border-radius: 3px;
 }
 
 .section__subtitle {
   font-size: var(--fs-lg);
   color: var(--text-color-lighter);
   max-width: 600px;
-  margin: 0 auto;
+  margin: var(--space-sm) auto 0;
+  opacity: 0.85;
 }
 
 /*=============== LOADING SCREEN ===============*/
@@ -1040,9 +1055,31 @@ img {
   transition: all var(--transition-fast);
 }
 
+.skill__item {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(255, 255, 255, 0.05));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
 .skill__item:hover {
   transform: translateX(5px);
   background: var(--surface-color-alt);
+  animation: pulseGlow 2s infinite;
+}
+
+.skill__item:hover::before {
+  transform: translateX(0);
 }
 
 
@@ -1289,45 +1326,66 @@ img {
 /* Modern Soft Skills Section */
 .soft-skills__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-2xl);
-  margin-top: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg);
 }
 
 .soft-skill__item {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  padding: var(--space-xl) var(--space-lg);
+  gap: var(--space-xl);
+  padding: var(--space-xl) var(--space-2xl);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  min-height: 90px;
+  transition: all var(--transition-base);
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.soft-skill__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 0;
 }
 
 .soft-skill__item:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  background: var(--surface-color-alt);
+}
+
+.soft-skill__item:hover::before {
+  opacity: 0.05;
 }
 
 
 /* Colorful Soft Skill Icons */
 .soft-skill__icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--primary-color);
   color: #fff;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--fs-2xl);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 1;
 }
 
 /* Example color classes for different soft skills */
@@ -1367,11 +1425,14 @@ img {
 }
 
 .soft-skill__label {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   font-weight: 600;
   color: var(--text-color);
+  margin-bottom: var(--space-xs);
   letter-spacing: 0.01em;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 1;
 }
 
 .soft-skill__item:hover .soft-skill__label {
@@ -1426,9 +1487,29 @@ img {
   transition: all var(--transition-fast);
 }
 
+.project__card {
+  position: relative;
+  isolation: isolate;
+}
+
+.project__card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, #2563eb, #60a5fa, #93c5fd);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .project__card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-xl);
+}
+
+.project__card:hover::after {
+  opacity: 1;
 }
 
 .project__image {
@@ -1998,24 +2079,54 @@ img {
 }
 
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) scale(0.9);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes fadeInRight {
-  from {
+  0% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(30px) scale(0.9);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
