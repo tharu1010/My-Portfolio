@@ -1666,8 +1666,8 @@ img {
   padding: var(--space-lg) var(--space-md);
 }
 .modern-contact__form .form__textarea {
-  min-height: 100px;
-  height: 100px;
+  min-height: 200px;
+  height: 200px;
 }
 .modern-contact__form .form__label {
   display: table-cell;
