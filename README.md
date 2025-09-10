@@ -4,7 +4,7 @@ A sleek, modern, and responsive portfolio website built with cutting-edge web te
 
 ![Portfolio Preview](assets/img/portfolio-preview.png)
 
-## ✨ Features
+## ✨ 
 
 ### 🎨 Modern Design
 - **Glassmorphism UI**: Beautiful glass-like components with backdrop blur effects
